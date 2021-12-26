@@ -884,7 +884,7 @@
   
   HandlerFactory.getHandler = function (context)
   {
-    if (this._isTraceLoggingEnabled())
+    if (config["NativeXHRLogging"])
       console.log("xhr-polyfill.js - raw request URL:"+context.url);
     
     var promise = new Promise(function (resolve)
