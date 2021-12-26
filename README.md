@@ -9,6 +9,8 @@
 > Sep 2021: Added cookie sync capability from [cordova-plugin-webview-proxy](https://github.com/GEDYSIntraWare/cordova-plugin-webview-proxy/)
 > Merged from upstream repository.
 
+> Dic 2021: forked from CASTANA-Solutions to fit Monaca needs
+
 ### About
 > Originally, this plugin was a merge of two other plugins, and made compatible for cordova-ios 6+.
 
