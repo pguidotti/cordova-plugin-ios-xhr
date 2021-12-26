@@ -883,14 +883,14 @@
   };
   
   HandlerFactory.getHandler = function (context)
-  {
-    if (config["NativeXHRLogging"])
-      console.log("xhr-polyfill.js - raw request URL:"+context.url);
-    
+  {    
     var promise = new Promise(function (resolve)
     {
       HandlerFactory._getConfig().then(function (config)
       {
+        if (config["NativeXHRLogging"])
+           console.log("xhr-polyfill.js - raw request URL:"+context.url);
+        
         var interceptRemoteRequests = config["InterceptRemoteRequests"];
 
         if (context.interceptRemoteRequests)           // backdoor to override per instance
