@@ -901,7 +901,7 @@
         }
         else
         {
-          if ("all" === interceptRemoteRequests ||
+          if ((("all" === interceptRemoteRequests) && context.url.startsWith("http")) ||
              ("secureOnly" === interceptRemoteRequests && context.url.startsWith("https://")))
             resolve(new HttpHandler(context, config));
           else
