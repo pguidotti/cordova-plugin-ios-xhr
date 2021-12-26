@@ -884,6 +884,9 @@
   
   HandlerFactory.getHandler = function (context)
   {
+    if (this._isTraceLoggingEnabled())
+      console.log("xhr-polyfill.js - raw request URL:"+context.url);
+    
     var promise = new Promise(function (resolve)
     {
       HandlerFactory._getConfig().then(function (config)
@@ -901,8 +904,8 @@
         }
         else
         {
-          if ((("all" === interceptRemoteRequests) && context.url.startsWith("http")) ||
-             ("secureOnly" === interceptRemoteRequests && context.url.startsWith("https://")))
+          if ((("all" === interceptRemoteRequests) && context.url.toLowerCase().startsWith("http")) ||
+             ("secureOnly" === interceptRemoteRequests && context.url.toLowerCase().startsWith("https://")))
             resolve(new HttpHandler(context, config));
           else
             resolve(new DelegateHandler(context, config));
