@@ -888,8 +888,10 @@
     {
       HandlerFactory._getConfig().then(function (config)
       {
-        if (config["NativeXHRLogging"])
-           console.log("xhr-polyfill.js - raw request URL:"+context.url+"- raw request body:"+JSON.stringify(context.requestData));
+        if (config["NativeXHRLogging"]) {
+           console.log("xhr-polyfill.js - raw request URL: "+context.url)
+           console.log("xhr-polyfill.js - raw request body:"+JSON.stringify(context.requestData));
+          }
         
         var interceptRemoteRequests = config["InterceptRemoteRequests"];
 
